@@ -46,7 +46,6 @@ app.use(koaStatic(
 router.get('/index', async(ctx, next) => { // 获取你的关注者分析数据
 	let body = ctx.request.body;
     let res = await ctrl.getTaoPiaoPiao()
-    console.log('data',res);
     ctx.response.status = 200;
     ctx.response.type = 'html';
     ctx.response.body = res.text;
