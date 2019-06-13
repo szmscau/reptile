@@ -1,0 +1,29 @@
+{
+  "name": "reptile-node",
+  "version": "1.0.0",
+  "description": "爬虫--node",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node --inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szmscau/reptile.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/szmscau/reptile/issues"
+  },
+  "homepage": "https://github.com/szmscau/reptile#readme",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "mongoose": "^5.5.6",
+    "superagent": "^5.0.5"
+  }
+}
