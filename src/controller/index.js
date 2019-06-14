@@ -1,7 +1,7 @@
 const {request} = require("../../config/request.js");
 const apiModel = require('../../utils/api.js');
 const cheerio = require('cheerio');
-
+const { movie } = require('../db/model.js');
 
 async function getTaoPiaoPiao() {
     let url = apiModel.tppUrl;
@@ -30,7 +30,13 @@ async function getTaoPiaoPiao() {
             obj.time = $($(div[j]).find('.movie-card-info .movie-card-list span')[5]).text();
             arr.push(obj);
         }
-        dataList.push(arr)
+        dataList = dataList.concat(arr)
+    }
+    try{
+        let result =  await movie.insertMany(dataList);
+        console.log('db -insert',result);
+    }catch(e){
+        console.log('db -insert',e);
     }
     return list;
 }
