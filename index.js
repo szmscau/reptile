@@ -47,10 +47,25 @@ router.get('/index', async(ctx, next) => { // 获取你的关注者分析数据
 	let body = ctx.request.body;
     let res = await ctrl.getTaoPiaoPiao()
     ctx.response.status = 200;
-    ctx.response.type = 'html';
-    ctx.response.body = res.text;
+    // ctx.response.type = 'html';
+    // ctx.response.body = res;
 	// ctx.body = { code: 200, msg: "ok", data: res }
 	next()
+})
+
+router.get('/maoyan', async(ctx, next) => { // 获取你的关注者分析数据
+	let body = ctx.request.body;
+    let res = await ctrl.getMaoYan()
+    ctx.response.status = 200;
+    // ctx.response.type = 'html';
+    // ctx.response.body = res;
+	// ctx.body = { code: 200, msg: "ok", data: res }
+	next()
+})
+router.get('/download',async(ctx, next)=>{
+	let res = await ctrl.downloadFile();
+	ctx.response.status = 200;
+	next();
 })
 
 // const handler = async(ctx, next) => {
